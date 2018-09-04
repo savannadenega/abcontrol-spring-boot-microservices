@@ -13,18 +13,15 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TarefaTeste{
-
-    @Mock
-    TarefaDao tarefaDao;
-
+    
     @Before
     public void init(){
         MockitoAnnotations.initMocks(this);
-        tarefaDao = new TarefaDao();
     }
 
     @Test
     public void testargetTarefaById(){
+        TarefaDao tarefaDao = org.mockito.Mockito.mock(TarefaDao.class);
         when(tarefaDao.getTarefaById(0)).thenReturn(new Tarefa());
         Tarefa tarefa = tarefaDao.getTarefaById(0);
         Assert.assertEquals(0, tarefa.getId());
