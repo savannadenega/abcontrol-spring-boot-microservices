@@ -9,6 +9,8 @@ _ABControl é um software que irá auxiliar no controle de tarefas, recursos hum
 - Microservices
 - Spring Boot
 
+- Mockito
+
 ------------------------------------------------------------------------------------------------------------------
 
 ### Como configurar o ambiente:
@@ -18,26 +20,26 @@ _ABControl é um software que irá auxiliar no controle de tarefas, recursos hum
 
 ### Realizando testes nos serviços
 
-- Para realizar testes utilize um navegador de sua preferência ou por exemplo, utilize uma extensão para navegador no modelo `http request`, por exemplo, utilizamos para nossos testes o Postman, uma extensão do Google Chrome;
+- Para realizar testes utilize um navegador de sua preferência ou, por exemplo, utilize uma extensão para navegador no modelo `http request`, nós utilizamos para nossos testes o Postman, uma extensão do Google Chrome;
 - No endereço `http://localhost:8080` execute as operações disponíveis.  
 
 Exemplo de operação de GET: `http://localhost:8080/tarefas`  
 _Esta operação retorna todas as tarefas disponíveis na base de dados._
 
-Exemplo de operação de POST: `http://localhost:8080/tarefas`
-_Esta operação adiciona uma tarefa na base de dados._
+Exemplo de operação de inserção, POST: `http://localhost:8080/tarefas`
+_Esta operação adiciona uma tarefa na base de dados, utilizando o modelo JSON abaixo._
 ```
     {
         "id": 4,
         "nome": "Contratar empregados",
         "descricao": "Contratar empregados",
         "prioridade": "Alta",
-        "status": null,
-        "dataComecoRealizacao": null,
-        "dataEstimadaEntrega": null,
-        "usuario": null,
-        "material": null,
-        "anexo": null
+        "status": "Em construção",
+        "dataComecoRealizacao": "07/08/2017",
+        "dataEstimadaEntrega": "08/12/2018",
+        "usuario": "Savanna Denega",
+        "material": "Material 1",
+        "anexo": "Sem anexo"
     }
 ```
 
