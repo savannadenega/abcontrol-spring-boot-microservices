@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -13,21 +12,30 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TarefaTeste{
-    
+
     @Before
     public void init(){
         MockitoAnnotations.initMocks(this);
     }
 
     @Test
-    public void testargetTarefaById(){
-        TarefaDao tarefaDao = org.mockito.Mockito.mock(TarefaDao.class);
-        when(tarefaDao.getTarefaById(0)).thenReturn(new Tarefa());
-        Tarefa tarefa = tarefaDao.getTarefaById(0);
+    public void testarGetTarefaById(){
+        TarefaDao tarefaDaoMock = org.mockito.Mockito.mock(TarefaDao.class);
+        when(tarefaDaoMock.getTarefaById(0)).thenReturn(new Tarefa(0, "Gerar relatório projetos", "Gerar relatório de todos os projetos em execução hoje", "Alta", "Em construção", "01/01/2018", "12/12/2018", "Savanna Denega", "Material 1", "Sem Anexo" ));
+
+        Tarefa tarefa = tarefaDaoMock.getTarefaById(0);
         Assert.assertEquals(0, tarefa.getId());
         Assert.assertEquals("Gerar relatório projetos", tarefa.getNome());
         Assert.assertEquals("Gerar relatório de todos os projetos em execução hoje", tarefa.getDescricao());
-        Mockito.verify(tarefaDao, Mockito.atLeastOnce()).getTarefaById(0);
+        Assert.assertEquals("Alta", tarefa.getPrioridade());
+        Assert.assertEquals("Em construção", tarefa.getStatus());
+        Assert.assertEquals("01/01/2018", tarefa.getDataComecoRealizacao());
+        Assert.assertEquals("12/12/2018", tarefa.getDataEstimadaEntrega());
+        Assert.assertEquals("Savanna Denega", tarefa.getUsuario());
+        Assert.assertEquals("Material 1", tarefa.getMaterial());
+        Assert.assertEquals("Sem Anexo", tarefa.getAnexo());
+
+        Mockito.verify(tarefaDaoMock, Mockito.atLeastOnce()).getTarefaById(0);
     }
 
 }
