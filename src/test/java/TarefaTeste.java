@@ -8,7 +8,13 @@ import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.runners.MockitoJUnitRunner;
-import static org.mockito.Mockito.when;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TarefaTeste{
@@ -20,7 +26,7 @@ public class TarefaTeste{
 
     @Test
     public void testarGetTarefaById(){
-        TarefaDao tarefaDaoMock = org.mockito.Mockito.mock(TarefaDao.class);
+        TarefaDao tarefaDaoMock = mock(TarefaDao.class);
         when(tarefaDaoMock.getTarefaById(0)).thenReturn(new Tarefa(0, "Gerar relatório projetos", "Gerar relatório de todos os projetos em execução hoje", "Alta", "Em construção", "01/01/2018", "12/12/2018", "Savanna Denega", "Material 1", "Sem Anexo" ));
 
         Tarefa tarefa = tarefaDaoMock.getTarefaById(0);
@@ -35,7 +41,17 @@ public class TarefaTeste{
         Assert.assertEquals("Material 1", tarefa.getMaterial());
         Assert.assertEquals("Sem Anexo", tarefa.getAnexo());
 
-        Mockito.verify(tarefaDaoMock, Mockito.atLeastOnce()).getTarefaById(0);
+        verify(tarefaDaoMock, Mockito.atLeastOnce()).getTarefaById(0);
+    }
+
+    @Test
+    public void testaRemoveTarefaById(){
+        TarefaDao tarefaDaoMock = mock(TarefaDao.class);
+        doNothing().when(tarefaDaoMock).removeTarefaById(isA(Integer.class));
+
+        tarefaDaoMock.removeTarefaById(0);
+
+        verify(tarefaDaoMock, Mockito.atLeastOnce()).removeTarefaById(0);
     }
 
 }
