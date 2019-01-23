@@ -20,7 +20,7 @@ _ABControl é um software que irá auxiliar no controle de tarefas, recursos hum
 
 ### Realizando testes nos serviços
 
-- Nós utilizamos para nossos testes o software Postman;
+- Nós utilizamos para nossos testes o software [Postman](https://www.getpostman.com/);
 - No endereço `http://localhost:8080` execute as operações disponíveis.  
 
 Exemplo de operação de GET: `http://localhost:8080/tarefas`  
