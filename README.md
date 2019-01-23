@@ -1,6 +1,6 @@
 # Abcontrol | Spring Boot | Microservices
 
-POC para desenvolvimento de uma aplicação com Microservices, com a utilização de Spring Boot, para a disciplina de Desenvolvimento de Software II Unisinos-2018.
+POC para desenvolvimento de uma aplicação com Microservices, com a utilização de Spring Boot.
 
 _ABControl é um software que irá auxiliar no controle de tarefas, recursos humanos, prazos, materiais, orçamento, estoque e qualidade para uma empresa chamada Construtora ABC que é uma companhia que presta serviços no ramo da construção civil. O software visa melhorar a comunicação com clientes e fornecedores, e melhorar o acesso à informação dos projetos._
 
@@ -20,7 +20,7 @@ _ABControl é um software que irá auxiliar no controle de tarefas, recursos hum
 
 ### Realizando testes nos serviços
 
-- Para realizar testes utilize um navegador de sua preferência ou, por exemplo, utilize uma extensão para navegador no modelo `http request`, nós utilizamos para nossos testes o Postman, uma extensão do Google Chrome;
+- Nós utilizamos para nossos testes o software Postman;
 - No endereço `http://localhost:8080` execute as operações disponíveis.  
 
 Exemplo de operação de GET: `http://localhost:8080/tarefas`  
